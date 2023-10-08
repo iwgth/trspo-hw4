@@ -20,7 +20,7 @@ def calculate_collatz_numbers(N, num_threads):
             total_steps += collatz(n)
         return total_steps
 
-    chunk_size = N // num_threads
+    chunk_size = N // num_threads #1.1
     chunks = [(i * chunk_size, (i + 1) * chunk_size) for i in range(num_threads)]
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
